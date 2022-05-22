@@ -6,7 +6,7 @@
         <h5 class="card-title"><%= recipe['title'] %></h5>
         <p class="card-text">Cook time: <%= recipe['cook_time'] %></p>
         <p class="card-text">Prep time: <%= recipe['prep_time'] %></p>
-        <p class="card-text">Ingredients: 
+        <p class="card-text">Ingredients:
           <% recipe['ingredients'].each do |ingredient| %>
             <span> <%= ingredient %> </span>
           <% end %>
