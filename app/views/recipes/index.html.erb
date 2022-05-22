@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center flex-wrap m-3">
+  <% @recipes.each do |recipe| %>
+    <div class="card m-2" style="width: 25rem">
+      <img class="card-img-top" src= <%= recipe['image'] %> alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= recipe['title'] %></h5>
+        <p class="card-text">Cook time: <%= recipe['cook_time'] %></p>
+        <p class="card-text">Prep time: <%= recipe['prep_time'] %></p>
+        <p class="card-text">Ingredients: 
+          <% recipe['ingredients'].each do |ingredient| %>
+            <span> <%= ingredient %> </span>
+          <% end %>
+        </p>
+        <p class="card-text">Ratings: <%= recipe['ratings'] %></p>
+        <p class="card-text">Category: <%= recipe['category'] %></p>
+        <% if recipe['cuisine'].present? %>
+          <p class="card-text">Cuisine: <%= recipe['cuisine'] %></p>
+        <% end %>
+        <p class="card-text">Author: <%= recipe['author'] %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

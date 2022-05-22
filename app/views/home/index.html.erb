@@ -1,0 +1,34 @@
+<div class='bg-light p-5'> 
+  <div class='container mt-5 mb-5'>
+    <div class='row'>
+      <h1 class='display-2'> It's dinner time !!!</h1>
+      <p> We help people find the most relevant recipes that they can prepare with the ingredients that they have at home. </p>
+    </div>
+  </div>
+</div>
+<div class='container mt-5'>
+  <div class='row'>
+    <% if user_signed_in? %>
+      <div class='col-md-4'>
+        <p> Review and manage ingredients: </p>
+        <%= button_to 'My Ingredients', ingredients_index_path, method: :get, class: 'btn btn-primary'%>
+      </div>
+      <div class='col-md-4'>
+        <p> Find something to cook: </p>
+        <%= button_to "Let's cook!", recipes_path, method: :get, class: 'btn btn-primary'%>
+      </div>
+      <div class='col-md-4'>
+        <p></p>
+        <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-primary mt-4'%>
+      </div>
+    <% else %>
+      <div class='col-md-4'>
+        <%= button_to 'Login', new_user_session_path, method: :get, class: 'btn btn-primary' %>
+      </div>
+      <div class='col-md-4'>
+        <%= button_to 'Continue as Guest', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
