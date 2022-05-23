@@ -4,7 +4,7 @@ module Recipes
 
     def initialize(user)
       @user = user
-      @all_recipes = JSON.parse(File.read('/Users/amer/Desktop/Projects/recipes-en.json'))
+      @all_recipes = JSON.parse(File.read('./recipes-en.json'))
       @user_ingredients = user.ingredients
     end
 
