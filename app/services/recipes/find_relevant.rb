@@ -26,7 +26,8 @@ module Recipes
 
         @sorted << recipe.merge(rank: @rank)
       end
-      @sorted.sort_by! { |element| element[:rank] }.reverse!.first(10)
+
+      @sorted.sort { |a, b| [a[:rank], a['ratings']] <=> [b[:rank], b['ratings']] }.reverse!.first(20)
     end
   end
 end
