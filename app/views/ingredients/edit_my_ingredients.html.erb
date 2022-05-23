@@ -1,1 +1,13 @@
-<h1> Edit </h1>
+<div class='container mt-5 pt-5'>
+  <div class='row'>
+    <h2 class='display-2 mb-3'>Add or remove the ingredients</h2>
+    <p>Note: Separate ingredients by comma</p>
+    <%= form_with model: @user, url: user_path(@user) do |form| %>
+      <div class='form-group'>
+        <%= form.text_field :ingredients, multiple: true, value: @user.ingredients.join(', '), class: 'form-control' %>
+      </div>
+      <br>
+      <%= form.submit 'Save Ingredients', class: 'btn btn-primary'%>
+    <% end %>
+  </div>
+</div>

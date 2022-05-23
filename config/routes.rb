@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'home#index'
 
-  get '/home', to: 'home#index' 
+  get '/home', to: 'home#index'
 
   resources :ingredients, only: :index do
     get :edit_my_ingredients, on: :collection
   end
 
   resources :recipes, only: :index
+  resources :users, only: %i[update edit]
 end

@@ -1,11 +1,12 @@
 <div class='container mt-5'>
-  <div class='row mb-5'><h1 class="display-2">My Ingredients</h1></div>
+  <div class='row mb-5'><h1 class='display-2'>My Ingredients</h1></div>
   <div class='row'>
-    <%= button_to "Let's cook!", recipes_path, method: :get, class: 'btn btn-primary'%>
-    <%= button_to 'Edit Ingredients', edit_my_ingredients_ingredients_path, method: :get, class: 'btn btn-primary mt-2'%>
+    <%= button_to 'Find a recipe!', recipes_path, method: :get, class: 'btn btn-primary'%>
+    <%= button_to @ingredients.any? ? 'Edit Ingredients' : 'Add Igredients',
+        edit_my_ingredients_ingredients_path, method: :get, class: 'btn btn-primary mt-2'%>
   </div>
   <div class='row mt-2'>
-    <ul lass="list-group">
+    <ul lass='list-group'>
     <% @ingredients.each do |ingredients| %>
       <li class='list-group-item'> <%= ingredients%> </p>
     <% end %>

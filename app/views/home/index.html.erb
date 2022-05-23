@@ -1,4 +1,4 @@
-<div class='bg-light p-5'> 
+<div class='bg-light p-5'>
   <div class='container mt-5 mb-5'>
     <div class='row'>
       <h1 class='display-2'> It's dinner time !!!</h1>
@@ -11,11 +11,11 @@
     <% if user_signed_in? %>
       <div class='col-md-4'>
         <p> Review and manage ingredients: </p>
-        <%= button_to 'My Ingredients', ingredients_index_path, method: :get, class: 'btn btn-primary'%>
+        <%= button_to 'My Ingredients', ingredients_path, method: :get, class: 'btn btn-primary'%>
       </div>
       <div class='col-md-4'>
         <p> Find something to cook: </p>
-        <%= button_to "Let's cook!", recipes_path, method: :get, class: 'btn btn-primary'%>
+        <%= button_to 'Find a recipe!', recipes_path, method: :get, class: 'btn btn-primary'%>
       </div>
       <div class='col-md-4'>
         <p></p>

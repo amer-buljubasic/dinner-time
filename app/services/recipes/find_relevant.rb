@@ -5,7 +5,7 @@ module Recipes
     def initialize(user)
       @user = user
       @all_recipes = JSON.parse(File.read('/Users/amer/Desktop/Projects/recipes-en.json'))
-      @user_ingredients = CSV.read('test/fixtures/my_ingredients.csv')[0]
+      @user_ingredients = user.ingredients
     end
 
     def call
@@ -26,7 +26,6 @@ module Recipes
 
         @sorted << recipe.merge(rank: @rank)
       end
-
       @sorted.sort_by! { |element| element[:rank] }.reverse!.first(10)
     end
   end
