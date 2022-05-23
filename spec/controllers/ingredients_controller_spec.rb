@@ -39,7 +39,6 @@ RSpec.describe IngredientsController do
       expect(response).to render_template('edit_my_ingredients')
     end
 
-
     it 'assigns current_user to @ingredients' do
       get :edit_my_ingredients
 
