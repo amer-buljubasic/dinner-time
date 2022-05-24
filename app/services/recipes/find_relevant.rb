@@ -4,7 +4,7 @@ module Recipes
 
     def initialize(user)
       @user = user
-      @all_recipes = JSON.parse(File.read('./recipes-en.json'))
+      @all_recipes = Recipe.all
       @user_ingredients = user.ingredients
     end
 
@@ -21,13 +21,14 @@ module Recipes
       all_recipes.each do |recipe|
         @rank = 0
         user_ingredients.each do |ing|
-          @rank += 1 if recipe['ingredients'].any? { |i| i[ing] }
+          @rank += 1 if recipe.ingredients.any? { |i| i[ing] }
         end
 
-        @sorted << recipe.merge(rank: @rank)
+        @sorted << { recipe: recipe, rank: @rank, rating: recipe.ratings } if @rank.positive?
       end
 
-      @sorted.sort { |a, b| [a[:rank], a['ratings']] <=> [b[:rank], b['ratings']] }.reverse!.first(20)
+      @sorted.sort_by! { |a| [a[:rank], a[:rating]] }.reverse!.first(100)
+      @sorted.pluck(:recipe)
     end
   end
 end
