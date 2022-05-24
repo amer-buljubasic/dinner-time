@@ -27,8 +27,8 @@ module Recipes
         @sorted << { recipe: recipe, rank: @rank, rating: recipe.ratings } if @rank.positive?
       end
 
-      @sorted.sort_by! { |a| [a[:rank], a[:rating]] }.reverse!.first(100)
-      @sorted.pluck(:recipe)
+      @sorted.sort_by! { |a| [a[:rank], a[:rating]] }.reverse!
+      @sorted.first(100).pluck(:recipe)
     end
   end
 end
