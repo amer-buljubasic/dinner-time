@@ -49,6 +49,7 @@ gem 'devise'
 gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
 gem 'pagy', '~> 5.10'
+gem 'byebug'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
